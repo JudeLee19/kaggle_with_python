@@ -26,6 +26,11 @@ import gensim
 model = gensim.models.Word2Vec(sentences, size=100, window=5, min_count=1, workers=4)
 
 model.save('./data/word2vec')
-
-
-
+cate_contents = {}
+cate_dict = {}
+for k, v in grouped_train_data:
+    cate_contents[k] = v['com'].tolist()
+count = 0
+for k, v in grouped_train_data:
+    cate_dict[count] = k
+    count += 1
